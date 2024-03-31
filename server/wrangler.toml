@@ -1,0 +1,9 @@
+name = "keychain"
+main = "src/index.ts"
+compatibility_date = "2024-03-29"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "database" # i.e. available in your Worker on env.DB
+database_name = "ssh-authorized-keys"
+database_id = "0ce7354e-19d9-44df-a329-8a0d7b8137a2"
