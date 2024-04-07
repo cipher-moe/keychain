@@ -1,5 +1,5 @@
 # keychain
-I felt the need to reinvent the wheel, so I drafted up a few lines of code to manage SSH public keys easier.
+I felt the need to reinvent the wheel, so I drafted up a few lines of code to manage SSH public keys more easily.
 
 ### Description
 The public keys are served via a Cloudflare Worker.
