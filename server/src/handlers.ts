@@ -31,10 +31,11 @@ export const get : Handler = async ({ req, env }) => {
 
 	// noinspection SqlResolve,SqlNoDataSourceInspection
 	let queries = env.database.prepare(
-		`SELECT * FROM keys WHERE deleted = 0 AND username = ? AND hostname LIKE ? COLLATE NOCASE AND TRIM(hostname) = ? COLLATE NOCASE`
+		`SELECT * FROM keys WHERE deleted = 0 AND username = ? AND hostname LIKE ? COLLATE NOCASE`
 	);
-	let result = await queries.bind(user, `%${host}%`, host).all<Record>();
+	let result = await queries.bind(user, `%${host}%`).all<Record>();
 	let v = result.results;
+	v = v.filter(record => record.hostname.trim().toLowerCase() === host.toLowerCase())
 	return new Response(JSON.stringify(v, null, 4));
 }
 
